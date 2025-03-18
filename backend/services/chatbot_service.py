@@ -98,6 +98,22 @@ def vendor_normalization(documents):
     return documents
 
 
+def vendor_normalization_str(documents_str):
+    """
+    Normalize vendor names across documents by identifying and standardizing variations.
+    Example: "OptimusInc", "Optimusinfo" -> "Optimus"
+    """
+    vendor_name_mapping = {
+        "OptimusInc": "Optimus",
+        "Optimusinfo": "Optimus",
+        # Add more mappings as needed
+    }
+
+    for key, value in vendor_name_mapping.items():
+        documents_str = documents_str.replace(key, value)
+
+    return documents_str
+
 def generate_llm_response(query, documents):
     """Use Azure OpenAI to generate a response based on retrieved documents"""
     if not documents:
