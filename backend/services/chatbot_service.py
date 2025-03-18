@@ -114,6 +114,16 @@ def vendor_normalization_str(documents_str):
 
     return documents_str
 
+
+def quer_struc(query, rel_docs):
+    structured=query+rel_docs
+    return structured
+
+
+
+def store_cosmo(user_id, response,query):
+    pass
+
 def generate_llm_response(query, documents):
     """Use Azure OpenAI to generate a response based on retrieved documents"""
     if not documents:
